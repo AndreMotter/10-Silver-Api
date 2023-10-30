@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Persistense.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231030005801_update1")]
+    [Migration("20231030031417_update1")]
     partial class update1
     {
         /// <inheritdoc />
@@ -49,7 +49,7 @@ namespace Api.Persistense.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }

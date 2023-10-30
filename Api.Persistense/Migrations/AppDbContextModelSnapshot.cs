@@ -46,7 +46,7 @@ namespace Api.Persistense.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }
