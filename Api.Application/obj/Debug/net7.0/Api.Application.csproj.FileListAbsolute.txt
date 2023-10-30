@@ -13,3 +13,18 @@ C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\Api.Applicati
 C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\Api.Application\obj\Debug\net7.0\refint\Api.Application.dll
 C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\Api.Application\obj\Debug\net7.0\Api.Application.pdb
 C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\Api.Application\obj\Debug\net7.0\ref\Api.Application.dll
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\bin\Debug\net7.0\Api.Application.deps.json
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\bin\Debug\net7.0\Api.Application.dll
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\bin\Debug\net7.0\Api.Application.pdb
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\bin\Debug\net7.0\App.Domain.dll
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\bin\Debug\net7.0\App.Domain.pdb
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.csproj.AssemblyReference.cache
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.AssemblyInfoInputs.cache
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.AssemblyInfo.cs
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.csproj.CoreCompileInputs.cache
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.csproj.CopyComplete
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.dll
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\refint\Api.Application.dll
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\Api.Application.pdb
+C:\Users\Motter\Desktop\Projeto POO\Api\Api.Application\obj\Debug\net7.0\ref\Api.Application.dll

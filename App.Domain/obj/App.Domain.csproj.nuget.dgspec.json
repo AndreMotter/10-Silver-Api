@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Motter\\Desktop\\Repositorios Próprios\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj": {}
+    "C:\\Users\\Motter\\Desktop\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Motter\\Desktop\\Repositorios Próprios\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj": {
+    "C:\\Users\\Motter\\Desktop\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Motter\\Desktop\\Repositorios Próprios\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Motter\\Desktop\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj",
         "projectName": "App.Domain",
-        "projectPath": "C:\\Users\\Motter\\Desktop\\Repositorios Próprios\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj",
+        "projectPath": "C:\\Users\\Motter\\Desktop\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj",
         "packagesPath": "C:\\Users\\Motter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Motter\\Desktop\\Repositorios Próprios\\Projeto POO\\Api\\App.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Motter\\Desktop\\Projeto POO\\Api\\App.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
