@@ -1,0 +1,12 @@
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\bin\Debug\net7.0\App.Domain.deps.json
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\bin\Debug\net7.0\App.Domain.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\bin\Debug\net7.0\App.Domain.pdb
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\App.Domain.csproj.AssemblyReference.cache
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\App.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\App.Domain.AssemblyInfoInputs.cache
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\App.Domain.AssemblyInfo.cs
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\App.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\App.Domain.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\refint\App.Domain.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\App.Domain.pdb
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api\App.Domain\obj\Debug\net7.0\ref\App.Domain.dll
