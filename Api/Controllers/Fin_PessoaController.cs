@@ -7,21 +7,21 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UsuarioController : Controller
+    public class Fin_PessoaController : Controller
     {
-        private IUsuarioService _service;
+        private IFin_PessoaService _service;
 
-        public UsuarioController(IUsuarioService service)
+        public Fin_PessoaController(IFin_PessoaService service)
         {
             _service = service;
         }
 
-        [HttpGet("ListaUsuarios")]
-        public IActionResult ListaUsuarios(string usuario, int status)
+        [HttpGet("Lista")]
+        public IActionResult Lista(string pessoa, int status)
         {
             try
             {
-                var obj = _service.listaUsuarios(usuario, status);
+                var obj = _service.lista(pessoa, status);
                 return Ok(RetornoApi.Sucesso(obj));
             }
             catch (Exception ex)
@@ -35,7 +35,7 @@ namespace Api.Controllers
         {
             try
             {
-                var obj = _service.BuscaPorId(id);
+                var obj = _service.buscaPorId(id);
                 return Ok(RetornoApi.Sucesso(obj));
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace Api.Controllers
         {
             try
             {
-                _service.Ativar(id);
+                _service.ativar(id);
                 return Ok(RetornoApi.Sucesso(true));
             }
             catch (Exception ex)
@@ -59,11 +59,11 @@ namespace Api.Controllers
         }
 
         [HttpPost("Salvar")]
-        public IActionResult Salvar([FromBody] Usuario obj)
+        public IActionResult Salvar([FromBody] Fin_Pessoa obj)
         {
             try
             {
-                _service.Salvar(obj);
+                _service.salvar(obj);
                 return Ok(RetornoApi.Sucesso(true));
             }
             catch (Exception ex)
@@ -77,7 +77,7 @@ namespace Api.Controllers
         {
             try
             {
-                _service.Remover(id);
+                _service.remover(id);
                 return Ok(RetornoApi.Sucesso(true));
             }
             catch (Exception ex)

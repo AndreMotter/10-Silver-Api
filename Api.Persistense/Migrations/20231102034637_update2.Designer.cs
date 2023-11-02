@@ -3,6 +3,7 @@ using System;
 using Api.Persistense;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Persistense.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231102034637_update2")]
+    partial class update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,6 +36,12 @@ namespace Api.Persistense.Migrations
                     b.Property<int>("cat_codigo")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("fin_categoriacat_codigo")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("fin_pessoapes_codigo")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("mov_data")
                         .HasColumnType("timestamp with time zone");
 
@@ -47,9 +56,9 @@ namespace Api.Persistense.Migrations
 
                     b.HasKey("mov_codigo");
 
-                    b.HasIndex("cat_codigo");
+                    b.HasIndex("fin_categoriacat_codigo");
 
-                    b.HasIndex("pes_codigo");
+                    b.HasIndex("fin_pessoapes_codigo");
 
                     b.ToTable("fin_movimentacao");
                 });
@@ -105,44 +114,24 @@ namespace Api.Persistense.Migrations
                     b.Property<int>("cat_tipo")
                         .HasColumnType("integer");
 
-                    b.Property<int>("pes_codigo")
-                        .HasColumnType("integer");
-
                     b.HasKey("cat_codigo");
-
-                    b.HasIndex("pes_codigo");
 
                     b.ToTable("fin_categoria");
                 });
 
             modelBuilder.Entity("App.Domain.Entities.Fin_Movimentacao", b =>
                 {
-                    b.HasOne("App.Domain.Entities.Fin_categoria", "FinCategoria")
+                    b.HasOne("App.Domain.Entities.Fin_categoria", "fin_categoria")
                         .WithMany()
-                        .HasForeignKey("cat_codigo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("fin_categoriacat_codigo");
 
-                    b.HasOne("App.Domain.Entities.Fin_Pessoa", "FinPessoa")
+                    b.HasOne("App.Domain.Entities.Fin_Pessoa", "fin_pessoa")
                         .WithMany()
-                        .HasForeignKey("pes_codigo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("fin_pessoapes_codigo");
 
-                    b.Navigation("FinCategoria");
+                    b.Navigation("fin_categoria");
 
-                    b.Navigation("FinPessoa");
-                });
-
-            modelBuilder.Entity("App.Domain.Entities.Fin_categoria", b =>
-                {
-                    b.HasOne("App.Domain.Entities.Fin_Pessoa", "FinPessoa")
-                        .WithMany()
-                        .HasForeignKey("pes_codigo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FinPessoa");
+                    b.Navigation("fin_pessoa");
                 });
 #pragma warning restore 612, 618
         }

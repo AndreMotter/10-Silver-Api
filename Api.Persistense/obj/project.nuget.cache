@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RwmMJfII1JVc97xxxQjfbdKXdiTD1sxTNEoByzOPXuk7Oazf2YT7ZRD7t9veEYMDR2RrFPlwA2cPAKfFXkHrMQ==",
+  "dgSpecHash": "qsjgfdW/WGKB6OBdT6L7E2fG7UErBtEgzRWUOYISnu6XC9fqOArSaU/THcoTFkuZ4PtczhM0j5OfLwP9SXcT8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Motter\\Desktop\\Projeto POO\\Api\\Api.Persistense\\Api.Persistense.csproj",
+  "projectFilePath": "C:\\Users\\Motter\\Desktop\\Repositorios Próprios\\Projeto POO\\Api\\Api.Persistense\\Api.Persistense.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Motter\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Motter\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",

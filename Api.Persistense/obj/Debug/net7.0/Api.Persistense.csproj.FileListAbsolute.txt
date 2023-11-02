@@ -32,3 +32,20 @@ C:\Users\Motter\Desktop\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\refint\
 C:\Users\Motter\Desktop\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.pdb
 C:\Users\Motter\Desktop\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.genruntimeconfig.cache
 C:\Users\Motter\Desktop\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\ref\Api.Persistense.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\bin\Debug\net7.0\Api.Persistense.deps.json
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\bin\Debug\net7.0\Api.Persistense.runtimeconfig.json
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\bin\Debug\net7.0\Api.Persistense.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\bin\Debug\net7.0\Api.Persistense.pdb
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\bin\Debug\net7.0\App.Domain.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\bin\Debug\net7.0\App.Domain.pdb
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.csproj.AssemblyReference.cache
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.AssemblyInfoInputs.cache
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.AssemblyInfo.cs
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.csproj.CoreCompileInputs.cache
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.csproj.CopyComplete
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\refint\Api.Persistense.dll
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.pdb
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\Api.Persistense.genruntimeconfig.cache
+C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\Api.Persistense\obj\Debug\net7.0\ref\Api.Persistense.dll

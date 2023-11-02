@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8EEYt0zrdpFis2ZXI3LGNJRwd8lafPw43h3+TTOOhe/kbL82fHqfPisI3ryvf7xqYEiPL8n0kA+QgNDjhU/1kg==",
+  "dgSpecHash": "eads//19H6jolW7ubzKvPYOqYmnzEOjYVIAx3yE+4B7gmqRWK5cwHyAmjaIQgfUZz+6VPyD9XC+KNgVIX2+PWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Motter\\Desktop\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Motter\\Desktop\\Repositorios Próprios\\Projeto POO\\Api\\App.Domain\\App.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Motter\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
     "C:\\Users\\Motter\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.13\\microsoft.entityframeworkcore.abstractions.7.0.13.nupkg.sha512",

@@ -3,6 +3,7 @@ using System;
 using Api.Persistense;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Persistense.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231102035441_update3")]
+    partial class update3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,12 +108,7 @@ namespace Api.Persistense.Migrations
                     b.Property<int>("cat_tipo")
                         .HasColumnType("integer");
 
-                    b.Property<int>("pes_codigo")
-                        .HasColumnType("integer");
-
                     b.HasKey("cat_codigo");
-
-                    b.HasIndex("pes_codigo");
 
                     b.ToTable("fin_categoria");
                 });
@@ -130,17 +128,6 @@ namespace Api.Persistense.Migrations
                         .IsRequired();
 
                     b.Navigation("FinCategoria");
-
-                    b.Navigation("FinPessoa");
-                });
-
-            modelBuilder.Entity("App.Domain.Entities.Fin_categoria", b =>
-                {
-                    b.HasOne("App.Domain.Entities.Fin_Pessoa", "FinPessoa")
-                        .WithMany()
-                        .HasForeignKey("pes_codigo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("FinPessoa");
                 });

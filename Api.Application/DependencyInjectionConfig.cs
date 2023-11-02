@@ -8,7 +8,7 @@ namespace Api.Application
     {
         public static void InjectServices(IServiceCollection services)
         {
-            services.AddTransient<IUsuarioService, UsuarioService>();
+            services.AddTransient<IFin_PessoaService, Fin_PessoaService>();
         }
     }
 }
