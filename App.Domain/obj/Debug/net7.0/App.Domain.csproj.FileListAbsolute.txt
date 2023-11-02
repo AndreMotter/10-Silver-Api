@@ -34,3 +34,15 @@ C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\App.Domain\obj\De
 C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\App.Domain\obj\Debug\net7.0\refint\App.Domain.dll
 C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\App.Domain\obj\Debug\net7.0\App.Domain.pdb
 C:\Users\Motter\Desktop\Repositorios Próprios\Projeto POO\Api\App.Domain\obj\Debug\net7.0\ref\App.Domain.dll
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\bin\Debug\net7.0\App.Domain.deps.json
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\bin\Debug\net7.0\App.Domain.dll
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\bin\Debug\net7.0\App.Domain.pdb
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\App.Domain.csproj.AssemblyReference.cache
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\App.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\App.Domain.AssemblyInfoInputs.cache
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\App.Domain.AssemblyInfo.cs
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\App.Domain.csproj.CoreCompileInputs.cache
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\App.Domain.dll
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\refint\App.Domain.dll
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\App.Domain.pdb
+C:\Users\andre.motter\Desktop\SISTEMAS\PROJETO_POO\API\10-Silver-Api\App.Domain\obj\Debug\net7.0\ref\App.Domain.dll

@@ -23,14 +23,7 @@ namespace Api.Persistense.Repositories
 
         public void Save(TEntity obj)
         {
-            if ((int)obj.GetType().GetProperty("Id").GetValue(obj, null) != 0)
-            {
-                _dbSetEntity.Update(obj);
-            }
-            else
-            {
-                _dbSetEntity.Add(obj);
-            }
+           _dbSetEntity.Add(obj);
         }
 
         public void Update(TEntity obj)

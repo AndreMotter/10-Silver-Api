@@ -31,8 +31,12 @@ namespace Api.Application.Services
             ).Select(p => new Fin_Pessoa
             {
                 pes_codigo = p.pes_codigo,
-                pes_nome = p.pes_nome
-            }).OrderByDescending(x => x.pes_nome).ToList();
+                pes_nome = p.pes_nome,
+                pes_cpf = p.pes_cpf,
+                pes_ativo = p.pes_ativo,
+                pes_email = p.pes_email,
+                pes_data_nascimento = p.pes_data_nascimento,
+            }).OrderByDescending(x => x.pes_codigo).ToList();
         }
         public void remover(int id)
         {
