@@ -27,3 +27,4 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+/.vs/Api/v17/.suo
