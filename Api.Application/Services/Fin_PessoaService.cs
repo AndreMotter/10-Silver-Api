@@ -26,9 +26,10 @@ namespace Api.Application.Services
         {
 
             pessoa = pessoa ?? "";
-            return _repository.Query(x => x.pes_nome.ToUpper().Contains(pessoa.ToUpper())
-            && status == 0 ? (x.pes_ativo == false || x.pes_ativo == true) : x.pes_ativo == (status == 1 ? true : false)
-            ).Select(p => new Fin_Pessoa
+            var query = _repository.Query(x => x.pes_nome.ToUpper().Contains(pessoa.ToUpper()) 
+                         && status == 0 ? (x.pes_ativo == false || x.pes_ativo == true) : x.pes_ativo == (status == 1 ? true : false));
+
+            var lista = query.Select(p => new Fin_Pessoa
             {
                 pes_codigo = p.pes_codigo,
                 pes_nome = p.pes_nome,
@@ -37,6 +38,8 @@ namespace Api.Application.Services
                 pes_email = p.pes_email,
                 pes_data_nascimento = p.pes_data_nascimento,
             }).OrderByDescending(x => x.pes_codigo).ToList();
+
+            return lista;
         }
         public void remover(int id)
         {
