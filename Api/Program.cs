@@ -1,4 +1,3 @@
-using Api.Application;
 using Api.Persistense;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,12 +33,6 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<AppDbContext>();
     dbContext.Database.Migrate();
-}
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
