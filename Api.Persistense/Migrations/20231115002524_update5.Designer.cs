@@ -3,6 +3,7 @@ using System;
 using Api.Persistense;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Persistense.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231115002524_update5")]
+    partial class update5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +118,7 @@ namespace Api.Persistense.Migrations
                     b.ToTable("fin_categoria");
                 });
 
-            modelBuilder.Entity("App.Domain.Entities.Fin_conta_Bancaria", b =>
+            modelBuilder.Entity("App.Domain.Entities.Fin_contaBancaria", b =>
                 {
                     b.Property<int>("cba_codigo")
                         .ValueGeneratedOnAdd()
@@ -129,8 +132,8 @@ namespace Api.Persistense.Migrations
                     b.Property<string>("cba_compe_banco")
                         .HasColumnType("text");
 
-                    b.Property<string>("cba_descricao")
-                        .HasColumnType("text");
+                    b.Property<int>("cba_descricao")
+                        .HasColumnType("integer");
 
                     b.Property<string>("cba_numero")
                         .HasColumnType("text");
@@ -148,7 +151,7 @@ namespace Api.Persistense.Migrations
 
                     b.HasIndex("pes_codigo");
 
-                    b.ToTable("fin_conta_bancaria");
+                    b.ToTable("fin_contaBancaria");
                 });
 
             modelBuilder.Entity("App.Domain.Entities.Fin_Movimentacao", b =>
@@ -159,7 +162,7 @@ namespace Api.Persistense.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("App.Domain.Entities.Fin_conta_Bancaria", "Fin_contaBancaria")
+                    b.HasOne("App.Domain.Entities.Fin_contaBancaria", "Fin_contaBancaria")
                         .WithMany()
                         .HasForeignKey("cba_codigo");
 
@@ -176,7 +179,7 @@ namespace Api.Persistense.Migrations
                     b.Navigation("Fin_contaBancaria");
                 });
 
-            modelBuilder.Entity("App.Domain.Entities.Fin_conta_Bancaria", b =>
+            modelBuilder.Entity("App.Domain.Entities.Fin_contaBancaria", b =>
                 {
                     b.HasOne("App.Domain.Entities.Fin_Pessoa", "FinPessoa")
                         .WithMany()

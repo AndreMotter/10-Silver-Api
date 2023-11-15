@@ -3,6 +3,7 @@ using System;
 using Api.Persistense;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Persistense.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231115003136_update6")]
+    partial class update6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,8 +132,8 @@ namespace Api.Persistense.Migrations
                     b.Property<string>("cba_compe_banco")
                         .HasColumnType("text");
 
-                    b.Property<string>("cba_descricao")
-                        .HasColumnType("text");
+                    b.Property<int>("cba_descricao")
+                        .HasColumnType("integer");
 
                     b.Property<string>("cba_numero")
                         .HasColumnType("text");
