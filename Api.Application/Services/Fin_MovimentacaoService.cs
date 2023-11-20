@@ -23,11 +23,13 @@ namespace Api.Application.Services
             return obj;
         }
 
-        public List<Fin_Movimentacao> lista(string pessoa, int status)
+        public List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo)
         {
-
-            pessoa = pessoa ?? "";
-            var query = _repository.Query(x => 1 == 1);
+                var query = _repository.Query(x => x.mov_tipo == mov_tipo);
+                if (pes_codigo != 0)
+            {
+                query = query.Where(x => x.pes_codigo == pes_codigo);
+            }
             var lista = query.OrderByDescending(x => x.pes_codigo).ToList();
             return lista;
         }
