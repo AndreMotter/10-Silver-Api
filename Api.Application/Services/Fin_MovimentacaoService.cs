@@ -2,7 +2,7 @@
 using App.Domain.Entities;
 using App.Domain.Interfaces.Application;
 using App.Domain.Interfaces.Repositories;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Application.Services
 {
@@ -25,12 +25,32 @@ namespace Api.Application.Services
 
         public List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo)
         {
-                var query = _repository.Query(x => x.mov_tipo == mov_tipo);
-                if (pes_codigo != 0)
+            var query = _repository.Query(x => x.mov_tipo == mov_tipo);
+            if (pes_codigo != 0)
             {
                 query = query.Where(x => x.pes_codigo == pes_codigo);
             }
-            var lista = query.OrderByDescending(x => x.pes_codigo).ToList();
+            var lista = query
+                .Include(mov => mov.FinPessoa)
+                .Include(mov => mov.FinCategoria)
+                .Select(x => new Fin_Movimentacao
+             {
+                 mov_codigo = x.mov_codigo,
+                 mov_valor = x.mov_valor,
+                 mov_tipo = x.mov_tipo,
+                 mov_data = x.mov_data,
+                 FinPessoa = new Fin_Pessoa
+                 {
+                     pes_codigo = x.FinPessoa.pes_codigo,
+                     pes_nome = x.FinPessoa.pes_nome,
+                 },
+                 FinCategoria = new Fin_categoria
+                 {
+                     cat_codigo = x.FinCategoria.cat_codigo,
+                     cat_sigla = x.FinCategoria.cat_sigla
+                 }
+
+             }).OrderByDescending(x => x.pes_codigo).ToList();
             return lista;
         }
 
