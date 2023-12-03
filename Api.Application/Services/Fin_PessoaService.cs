@@ -1,7 +1,7 @@
 ﻿using App.Domain.Entities;
 using App.Domain.Interfaces.Application;
 using App.Domain.Interfaces.Repositories;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Application.Services
 {
@@ -24,10 +24,20 @@ namespace Api.Application.Services
 
         public List<Fin_Pessoa> lista(string pessoa, int status)
         {
-
             pessoa = pessoa ?? "";
-            var query = _repository.Query(x => x.pes_nome.ToUpper().Contains(pessoa.ToUpper()) 
-                         && status == 0 ? (x.pes_ativo == false || x.pes_ativo == true) : x.pes_ativo == (status == 1 ? true : false));
+            var query = _repository.Query(x => EF.Functions.Like(x.pes_nome, $"%{pessoa}%"));
+
+            if (status != 0)
+            {
+                if (status == 1)
+                {
+                    query = query.Where(x => x.pes_ativo == true);
+                }
+                else
+                {
+                    query = query.Where(x => x.pes_ativo == false);
+                }
+            }
 
             var lista = query.Select(p => new Fin_Pessoa
             {

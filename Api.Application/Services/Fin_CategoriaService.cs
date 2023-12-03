@@ -24,15 +24,15 @@ namespace Api.Application.Services
             return obj;
         }
 
-        public List<Fin_categoria> lista(string cat_sigla, int cat_tipo)
+        public List<Fin_categoria> lista(string cat_sigla, int cat_tipo, int first, int rows)
         {
             cat_sigla = cat_sigla ?? "";
-            var query = _repository.Query(x =>EF.Functions.Like(x.cat_sigla, $"%{cat_sigla}%"));
+            var query = _repository.Query(x =>EF.Functions.Like(x.cat_sigla, $"%{cat_sigla}%")).Skip(first).Take(rows);
             
-            if(cat_tipo != 999)
-            {
-                query = query.Where(x => x.cat_tipo == cat_tipo);
-            }
+            //if(cat_tipo != 999)
+            //{
+            //    query = query.Where(x => x.cat_tipo == cat_tipo);
+            //}
 
             var lista = query.Select(p => new Fin_categoria
             {
