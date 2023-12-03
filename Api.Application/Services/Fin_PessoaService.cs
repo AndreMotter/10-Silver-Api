@@ -2,6 +2,7 @@
 using App.Domain.Interfaces.Application;
 using App.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace Api.Application.Services
 {
@@ -22,10 +23,19 @@ namespace Api.Application.Services
             return obj;
         }
 
-        public List<Fin_Pessoa> lista(string pessoa, int status)
+        public List<Fin_Pessoa> lista(string pessoa, string cpf, int status, int first, int rows)
         {
-            pessoa = pessoa ?? "";
-            var query = _repository.Query(x => EF.Functions.Like(x.pes_nome, $"%{pessoa}%"));
+            var query = _repository.Query(x => 1 == 1);
+           
+            if (!String.IsNullOrWhiteSpace(pessoa))
+            {
+                query = query.Where(x => EF.Functions.Like(x.pes_nome.Trim().ToUpper(), $"%{pessoa.Trim().ToUpper()}%"));
+            }
+
+            if (!String.IsNullOrWhiteSpace(cpf))
+            {
+                query = query.Where(x => EF.Functions.Like(x.pes_cpf.Trim(), $"%{Regex.Replace(cpf.Trim(), @"[\.-/]", "")}%"));
+            }
 
             if (status != 0)
             {
@@ -36,10 +46,10 @@ namespace Api.Application.Services
                 else
                 {
                     query = query.Where(x => x.pes_ativo == false);
-                }
-            }
+    }
+}
 
-            var lista = query.Select(p => new Fin_Pessoa
+            var lista = query.Skip(first).Take(rows).Select(p => new Fin_Pessoa
             {
                 pes_codigo = p.pes_codigo,
                 pes_nome = p.pes_nome,

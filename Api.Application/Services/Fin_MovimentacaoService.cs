@@ -64,25 +64,27 @@ namespace Api.Application.Services
         {
 
             // Verifique se as datas não são nulas
-            if (!mov_data_inicial.HasValue || !mov_data_final.HasValue)
-            {
-                throw new Exception("As datas de início e fim devem ser fornecidas.");
-            }
+            //if (!mov_data_inicial.HasValue || !mov_data_final.HasValue)
+            //{
+            //    throw new Exception("As datas de início e fim devem ser fornecidas.");
+            //}
 
             // Corrigir a verificação da data aqui - deve ser mov_data_final
-            if (mov_data_final.Value < mov_data_inicial.Value)
-            {
-                throw new Exception("A data final não pode ser anterior à data inicial.");
-            }
+            //if (mov_data_final.Value < mov_data_inicial.Value)
+            //{
+            //    throw new Exception("A data final não pode ser anterior à data inicial.");
+            //}
 
             // Certifique-se de que as datas estão com o Kind correto
-            mov_data_inicial = DateTime.SpecifyKind(mov_data_inicial.Value, DateTimeKind.Utc);
-            mov_data_final = DateTime.SpecifyKind(mov_data_final.Value, DateTimeKind.Utc);
+            //mov_data_inicial = DateTime.SpecifyKind(mov_data_inicial.Value, DateTimeKind.Utc);
+            //mov_data_final = DateTime.SpecifyKind(mov_data_final.Value, DateTimeKind.Utc);
 
-            var query = _repository.Query(x =>
-               x.pes_codigo == pes_codigo &&
-               x.mov_data >= mov_data_inicial.Value &&
-               x.mov_data <= mov_data_final.Value);
+            //var query = _repository.Query(x =>
+            //   x.pes_codigo == pes_codigo &&
+            //   x.mov_data >= mov_data_inicial.Value &&
+            //   x.mov_data <= mov_data_final.Value);
+
+            var query = _repository.Query(x => 1 == 1);
 
             //receita é 1
             decimal soma_receitas = 0; 
@@ -101,7 +103,7 @@ namespace Api.Application.Services
             return new Fin_Movimentacao_Resumo_MensalDTO
             {
                 saldo = soma_receitas - soma_despesas,
-                receita = soma_receitas,
+                receitas = soma_receitas,
                 despesas = soma_despesas
             };
         }

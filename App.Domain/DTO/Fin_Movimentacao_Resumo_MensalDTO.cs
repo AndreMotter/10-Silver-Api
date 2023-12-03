@@ -10,6 +10,6 @@ namespace App.Domain.DTO
     {
         public decimal saldo {  get; set; }
         public decimal despesas {  get; set; }
-        public decimal receita {  get; set; }
+        public decimal receitas {  get; set; }
     }
 }
