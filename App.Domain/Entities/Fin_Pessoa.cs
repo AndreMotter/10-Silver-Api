@@ -13,5 +13,6 @@ namespace App.Domain.Entities
         public string pes_email { get; set; }
         public bool pes_ativo { get; set; }
         public DateTime pes_data_nascimento { get; set; }
+        public int pes_permissao { get; set; }
     }
 }

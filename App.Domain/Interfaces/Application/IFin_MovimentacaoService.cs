@@ -9,6 +9,7 @@ namespace App.Domain.Interfaces.Application
         List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo);
         void salvar(Fin_Movimentacao obj);
         void remover(int id);
-        Fin_Movimentacao_Resumo_MensalDTO resumoMensal(int pes_codigo, DateTime? mov_data_inicial, DateTime? mov_data_final);
+        Fin_Movimentacao_Resumo_MensalDTO resumoMensal(int pes_codigo, DateTime? mes_ano);
+        Fin_Movimentacao_Resumo_AnualDTO resumoAnual(int pes_codigo, int ano);
     }
 }

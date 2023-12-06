@@ -45,11 +45,25 @@ namespace Api.Controllers
         }
 
         [HttpGet("ResumoMensal")]
-        public IActionResult ResumoMensal(int pes_codigo, DateTime? mov_data_inicial, DateTime? mov_data_final)
+        public IActionResult ResumoMensal(int pes_codigo, DateTime? mes_ano)
         {
             try
             {
-                var obj = _service.resumoMensal(pes_codigo, mov_data_inicial, mov_data_final);
+                var obj = _service.resumoMensal(pes_codigo, mes_ano);
+                return Ok(RetornoApi.Sucesso(obj));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(RetornoApi.Erro(ex.Message));
+            }
+        }
+
+        [HttpGet("ResumoAnual")]
+        public IActionResult ResumoAnual(int pes_codigo, int ano)
+        {
+            try
+            {
+                var obj = _service.resumoAnual(pes_codigo, ano);
                 return Ok(RetornoApi.Sucesso(obj));
             }
             catch (Exception ex)

@@ -60,31 +60,83 @@ namespace Api.Application.Services
             _repository.SaveChanges();
         }
 
-        public Fin_Movimentacao_Resumo_MensalDTO resumoMensal(int pes_codigo, DateTime? mov_data_inicial, DateTime? mov_data_final)
+        public Fin_Movimentacao_Resumo_AnualDTO resumoAnual(int pes_codigo, int ano)
         {
+            Fin_Movimentacao_Resumo_AnualDTO fin_movimentacao_resumo_anual = new Fin_Movimentacao_Resumo_AnualDTO();
 
-            // Verifique se as datas não são nulas
-            //if (!mov_data_inicial.HasValue || !mov_data_final.HasValue)
-            //{
-            //    throw new Exception("As datas de início e fim devem ser fornecidas.");
-            //}
+            var lista_datas = new List<DateTime>();
 
-            // Corrigir a verificação da data aqui - deve ser mov_data_final
-            //if (mov_data_final.Value < mov_data_inicial.Value)
-            //{
-            //    throw new Exception("A data final não pode ser anterior à data inicial.");
-            //}
+            for (int mes = 1; mes <= 12; mes++)
+            {
+                lista_datas.Add(new DateTime(ano, mes, 1));
+            }
+            for (int i = 0; i < 12; i++)
+            {
+                var dados_mes = resumoMensal(pes_codigo, lista_datas[i]);
 
-            // Certifique-se de que as datas estão com o Kind correto
-            //mov_data_inicial = DateTime.SpecifyKind(mov_data_inicial.Value, DateTimeKind.Utc);
-            //mov_data_final = DateTime.SpecifyKind(mov_data_final.Value, DateTimeKind.Utc);
+                switch (i)
+                {
+                    case 0: // janeiro
+                        fin_movimentacao_resumo_anual.janeiro_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.janeiro_receita = dados_mes.receitas;
+                        break;
+                    case 1: // fevereiro
+                        fin_movimentacao_resumo_anual.fevereiro_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.fevereiro_receita = dados_mes.receitas;
+                        break;
+                    case 2: // março
+                        fin_movimentacao_resumo_anual.marco_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.marco_receita = dados_mes.receitas;
+                        break;
+                    case 3: // abril
+                        fin_movimentacao_resumo_anual.abril_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.abril_receita = dados_mes.receitas;
+                        break;
+                    case 4: // maio
+                        fin_movimentacao_resumo_anual.maio_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.maio_receita = dados_mes.receitas;
+                        break;
+                    case 5: // junho
+                        fin_movimentacao_resumo_anual.junho_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.junho_receita = dados_mes.receitas;
+                        break;
+                    case 6: // julho
+                        fin_movimentacao_resumo_anual.julho_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.julho_receita = dados_mes.receitas;
+                        break;
+                    case 7: // agosto
+                        fin_movimentacao_resumo_anual.agosto_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.agosto_receita = dados_mes.receitas;
+                        break;
+                    case 8: // setembro
+                        fin_movimentacao_resumo_anual.setembro_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.setembro_receita = dados_mes.receitas;
+                        break;
+                    case 9: // outubro
+                        fin_movimentacao_resumo_anual.outubro_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.outubro_receita = dados_mes.receitas;
+                        break;
+                    case 10: // novembro
+                        fin_movimentacao_resumo_anual.novembro_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.novembro_receita = dados_mes.receitas;
+                        break;
+                    case 11: // dezembro
+                        fin_movimentacao_resumo_anual.dezembro_despesa = dados_mes.despesas;
+                        fin_movimentacao_resumo_anual.dezembro_receita = dados_mes.receitas;
+                        break;
+                }
+            }
 
-            //var query = _repository.Query(x =>
-            //   x.pes_codigo == pes_codigo &&
-            //   x.mov_data >= mov_data_inicial.Value &&
-            //   x.mov_data <= mov_data_final.Value);
+            return fin_movimentacao_resumo_anual;
 
-            var query = _repository.Query(x => 1 == 1);
+        }
+        public Fin_Movimentacao_Resumo_MensalDTO resumoMensal(int pes_codigo, DateTime? mes_ano)
+        {
+            
+            DateTime inicioDoMes = GetFirstDayOfMonth((DateTime)mes_ano);
+            DateTime fimDoMes = GetLastDayOfMonth((DateTime)mes_ano);
+
+            var query = _repository.Query(x => x.pes_codigo == pes_codigo && x.mov_data >= inicioDoMes.ToUniversalTime() && x.mov_data <= fimDoMes.ToUniversalTime());
 
             //receita é 1
             decimal soma_receitas = 0; 
@@ -108,5 +160,14 @@ namespace Api.Application.Services
             };
         }
 
+        public DateTime GetLastDayOfMonth(DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1);
+        }
+
+        public DateTime GetFirstDayOfMonth(DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, 1);
+        }
     }
 }

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using App.Domain.DTO;
 
 namespace App.Domain.Interfaces.Application
 {
-    internal interface ILoginService
+    public interface ILoginService
     {
+        RetornoLoginDTO Logar(LoginDTO login);
     }
 }
