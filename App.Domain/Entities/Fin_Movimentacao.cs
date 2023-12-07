@@ -9,6 +9,7 @@ namespace App.Domain.Entities
         public int mov_codigo { get; set; }
         public decimal mov_valor { get; set; }
         public int mov_tipo { get; set; }
+        public string mov_observacao { get; set; }
         public DateTime mov_data { get; set; }
         public int pes_codigo { get; set; }
         [ForeignKey("pes_codigo")]

@@ -23,10 +23,18 @@ namespace Api.Application.Services
             return obj;
         }
 
-        public List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo)
+        public List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo, int cat_codigo)
         {
-            var lista = _repository.Query(x => x.mov_tipo == mov_tipo && x.pes_codigo == pes_codigo).
-            Select(x => new Fin_Movimentacao
+            var query = _repository.Query(x => x.pes_codigo == pes_codigo);
+            if(mov_tipo != 9999)
+            {              
+               query = query.Where(x => x.mov_tipo == mov_tipo);
+            }
+            if(cat_codigo != 0)
+            {
+                query = query.Where(x => x.cat_codigo == cat_codigo);
+            }
+            var lista = query.Select(x => new Fin_Movimentacao
             {
                 mov_codigo = x.mov_codigo,
                 mov_valor = x.mov_valor,
@@ -35,7 +43,7 @@ namespace Api.Application.Services
                 Fin_Categoria = new Fin_categoria
                 {
                     cat_codigo = x.Fin_Categoria.cat_codigo,
-                    cat_descricao = x.Fin_Categoria.cat_descricao,
+                    cat_sigla = x.Fin_Categoria.cat_sigla,
                 },
                 Fin_contaBancaria = new Fin_conta_Bancaria
                 {
