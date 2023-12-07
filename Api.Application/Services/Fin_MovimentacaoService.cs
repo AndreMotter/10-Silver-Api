@@ -23,7 +23,7 @@ namespace Api.Application.Services
             return obj;
         }
 
-        public List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo, int cat_codigo)
+        public List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo, int cat_codigo, DateTime? data_inicial, DateTime? data_final)
         {
             var query = _repository.Query(x => x.pes_codigo == pes_codigo);
             if(mov_tipo != 9999)
@@ -33,6 +33,10 @@ namespace Api.Application.Services
             if(cat_codigo != 0)
             {
                 query = query.Where(x => x.cat_codigo == cat_codigo);
+            }
+            if (data_inicial.HasValue && data_final.HasValue)
+            {
+                query = query.Where(x => x.mov_data >= Convert.ToDateTime(data_inicial).ToUniversalTime() && x.mov_data <= Convert.ToDateTime(data_final).ToUniversalTime());
             }
             var lista = query.Select(x => new Fin_Movimentacao
             {

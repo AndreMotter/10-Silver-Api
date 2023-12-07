@@ -16,11 +16,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("ImprimirMovimentos")]
-        public IActionResult ImprimirMovimentos(int pes_codigo)
+        public IActionResult ImprimirMovimentos(int pes_codigo, int mov_tipo, int cat_codigo, DateTime? data_inicial, DateTime? data_final)
         {
             try
             {
-                var obj = _service.imprimirMovimentos(pes_codigo);
+                var obj = _service.imprimirMovimentos(pes_codigo, mov_tipo, cat_codigo, data_inicial, data_final);
                 return Ok(RetornoApi.Sucesso(obj));
             }
             catch (Exception ex)

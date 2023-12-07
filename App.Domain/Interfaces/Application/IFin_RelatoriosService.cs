@@ -8,6 +8,6 @@ namespace App.Domain.Interfaces.Application
 {
     public interface IFin_RelatoriosService
     {
-        byte[] imprimirMovimentos(int pes_codigo);
+        byte[] imprimirMovimentos(int pes_codigo, int mov_tipo, int cat_codigo, DateTime? data_inicial, DateTime? data_final);
     }
 }
