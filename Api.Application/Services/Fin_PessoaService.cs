@@ -63,10 +63,13 @@ namespace Api.Application.Services
 
             if (obj.pes_codigo == 0)
             {
+                obj.pes_ativo = true;
+                obj.pes_data_nascimento = obj.pes_data_nascimento.ToUniversalTime();
                 _repository.Save(obj);
             }
             else
             {
+                obj.pes_data_nascimento = obj.pes_data_nascimento.ToUniversalTime();
                 _repository.Update(obj);
             }
             _repository.SaveChanges();
