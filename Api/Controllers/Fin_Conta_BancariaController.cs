@@ -30,6 +30,20 @@ namespace Api.Controllers
             }
         }
 
+        [HttpGet("ListaSelect")]
+        public IActionResult ListaSelect(int pes_codigo)
+        {
+            try
+            {
+                var obj = _service.listaSelect(pes_codigo);
+                return Ok(RetornoApi.Sucesso(obj));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(RetornoApi.Erro(ex.Message));
+            }
+        }
+
         [HttpGet("BuscaPorId")]
         public IActionResult BuscaPorId(int id)
         {

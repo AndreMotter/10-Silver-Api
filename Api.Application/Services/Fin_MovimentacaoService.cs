@@ -9,9 +9,11 @@ namespace Api.Application.Services
     public class Fin_MovimentacaoService : IFin_MovimentacaoService
     {
         private IRepositoryBase<Fin_Movimentacao> _repository { get; set; }
-        public Fin_MovimentacaoService(IRepositoryBase<Fin_Movimentacao> repository)
+        private IRepositoryBase<Fin_Conta_Bancaria> _repositoryContas { get; set; }
+        public Fin_MovimentacaoService(IRepositoryBase<Fin_Movimentacao> repository, IRepositoryBase<Fin_Conta_Bancaria> repositoryContas)
         {
             _repository = repository;
+            _repositoryContas = repositoryContas;
         }
         public Fin_Movimentacao buscaPorId(int id)
         {
@@ -19,7 +21,7 @@ namespace Api.Application.Services
             {
                 throw new Exception("Informe o id");
             }
-            var obj = _repository.Query(x => x.pes_codigo == id).FirstOrDefault();
+            var obj = _repository.Query(x => x.mov_codigo == id).FirstOrDefault();
             return obj;
         }
 
@@ -44,6 +46,7 @@ namespace Api.Application.Services
                 mov_valor = x.mov_valor,
                 mov_tipo = x.mov_tipo,
                 mov_data = x.mov_data,
+                mov_observacao = x.mov_observacao,
                 Fin_Categoria = new Fin_categoria
                 {
                     cat_codigo = x.Fin_Categoria.cat_codigo,
@@ -61,6 +64,18 @@ namespace Api.Application.Services
 
         public void remover(int id)
         {
+            var obj = buscaPorId(id);
+            var conta_bancaria = _repositoryContas.Query(x => x.cba_codigo == obj.cba_codigo).FirstOrDefault();         
+            if (obj.mov_tipo == 0)
+            {
+                conta_bancaria.cba_saldo = conta_bancaria.cba_saldo + obj.mov_valor;
+            }
+            else
+            {
+                conta_bancaria.cba_saldo = conta_bancaria.cba_saldo - obj.mov_valor;
+            }
+            _repositoryContas.Update(conta_bancaria);
+
             _repository.Delete(id);
             _repository.SaveChanges();
         }
@@ -69,12 +84,26 @@ namespace Api.Application.Services
         {
             if (obj.mov_codigo == 0)
             {
+                obj.mov_data = obj.mov_data.ToUniversalTime();
                 _repository.Save(obj);
             }
             else
             {
                 _repository.Update(obj);
             }
+
+            var conta_bancaria = _repositoryContas.Query(x => x.cba_codigo == obj.cba_codigo).FirstOrDefault();
+
+            if(obj.mov_tipo == 0)
+            {
+                conta_bancaria.cba_saldo = conta_bancaria.cba_saldo - obj.mov_valor;
+            }
+            else
+            {
+                conta_bancaria.cba_saldo = conta_bancaria.cba_saldo + obj.mov_valor;
+            }
+            _repositoryContas.Update(conta_bancaria);
+
             _repository.SaveChanges();
         }
 

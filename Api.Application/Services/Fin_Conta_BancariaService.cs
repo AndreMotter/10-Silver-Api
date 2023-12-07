@@ -27,7 +27,20 @@ namespace Api.Application.Services
 
             var lista = query.Select(p => new Fin_Conta_Bancaria
             {
-                pes_codigo = p.pes_codigo,
+                cba_codigo = p.cba_codigo,
+                cba_descricao = p.cba_descricao,
+            }).OrderByDescending(x => x.cba_codigo).ToList();
+            return lista;
+        }
+
+        public List<Fin_Conta_Bancaria> listaSelect(int pes_codigo)
+        {
+            var query = _repository.Query(x => x.pes_codigo == pes_codigo);
+
+            var lista = query.Select(p => new Fin_Conta_Bancaria
+            {
+                cba_codigo = p.cba_codigo,
+                cba_descricao = p.cba_descricao,
             }).OrderByDescending(x => x.cba_codigo).ToList();
             return lista;
         }

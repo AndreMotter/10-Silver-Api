@@ -6,6 +6,7 @@ namespace App.Domain.Interfaces.Application
     {
         Fin_Conta_Bancaria buscaPorId(int id);
         List<Fin_Conta_Bancaria> lista(int pes_codigo);
+        List<Fin_Conta_Bancaria> listaSelect(int pes_codigo);
         void salvar(Fin_Conta_Bancaria obj);
         void remover(int id);
     }

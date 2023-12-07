@@ -29,5 +29,20 @@ namespace Api.Controllers
                 return BadRequest(RetornoApi.Erro(ex.Message));
             }
         }
+
+        [HttpGet("ImprimirResumoExercicio")]
+        public IActionResult ImprimirResumoExercicio(int pes_codigo, int ano)
+        {
+            try
+            {
+                var obj = _service.imprimirResumoExercicio(pes_codigo, ano);
+                return Ok(RetornoApi.Sucesso(obj));
+            }
+            catch (Exception ex)
+
+            {
+                return BadRequest(RetornoApi.Erro(ex.Message));
+            }
+        }
     }
 }
