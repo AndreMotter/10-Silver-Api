@@ -15,7 +15,8 @@ namespace App.Domain.Entities
         public virtual Fin_Pessoa FinPessoa { get; set; }
         public int cat_codigo { get; set; }
         [ForeignKey("cat_codigo")]
-        public virtual Fin_categoria FinCategoria { get; set; }
+        public virtual Fin_categoria Fin_Categoria { get; set; }
+        public int cba_codigo { get; set; }
         [ForeignKey("cba_codigo")]
         public virtual Fin_conta_Bancaria Fin_contaBancaria { get; set; }
     }

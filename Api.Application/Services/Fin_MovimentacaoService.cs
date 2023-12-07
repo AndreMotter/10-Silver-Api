@@ -25,19 +25,25 @@ namespace Api.Application.Services
 
         public List<Fin_Movimentacao> lista(int pes_codigo, int mov_tipo)
         {
-            var query = _repository.Query(x => x.mov_tipo == mov_tipo);
-            if (pes_codigo != 0)
+            var lista = _repository.Query(x => x.mov_tipo == mov_tipo && x.pes_codigo == pes_codigo).
+            Select(x => new Fin_Movimentacao
             {
-                query = query.Where(x => x.pes_codigo == pes_codigo);
-            }
-            var lista = query
-            .Select(x => new Fin_Movimentacao
-             {
-                 mov_codigo = x.mov_codigo,
-                 mov_valor = x.mov_valor,
-                 mov_tipo = x.mov_tipo,
-                 mov_data = x.mov_data,
-             }).OrderByDescending(x => x.pes_codigo).ToList();
+                mov_codigo = x.mov_codigo,
+                mov_valor = x.mov_valor,
+                mov_tipo = x.mov_tipo,
+                mov_data = x.mov_data,
+                Fin_Categoria = new Fin_categoria
+                {
+                    cat_codigo = x.Fin_Categoria.cat_codigo,
+                    cat_descricao = x.Fin_Categoria.cat_descricao,
+                },
+                Fin_contaBancaria = new Fin_conta_Bancaria
+                {
+                    cba_numero = x.Fin_contaBancaria.cba_numero,
+                    cba_descricao = x.Fin_contaBancaria.cba_descricao
+                },
+            }).OrderByDescending(x => x.mov_codigo).ToList();
+
             return lista;
         }
 

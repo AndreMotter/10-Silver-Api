@@ -13,6 +13,7 @@ namespace App.Domain.Entities
         public string cba_compe_banco { get; set; }
         public decimal cba_saldo { get; set; }
         public bool cba_status { get; set; }
+        public int pes_codigo { get; set; }
 
         [ForeignKey("pes_codigo")]
         public virtual Fin_Pessoa FinPessoa { get; set; }

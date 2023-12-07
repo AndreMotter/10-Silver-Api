@@ -1,5 +1,4 @@
-﻿
-using App.Domain.Entities;
+﻿using App.Domain.Entities;
 using App.Domain.Interfaces.Application;
 using App.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +41,21 @@ namespace Api.Application.Services
                 cat_tipo = p.cat_tipo,
             }).OrderByDescending(x => x.cat_codigo).ToList();
             return lista;
+        }
+
+
+        public List<Fin_categoria> listaSelect(int pes_codigo)
+        {
+           var query = _repository.Query(x => x.pes_codigo == pes_codigo);
+           var lista = query.Select(p => new Fin_categoria
+           {
+               cat_codigo = p.cat_codigo,
+               cat_descricao = p.cat_descricao,
+               cat_sigla = p.cat_sigla,
+               cat_tipo = p.cat_tipo,
+           }).OrderByDescending(x => x.cat_codigo).ToList();
+           
+           return lista;
         }
 
         public void remover(int id)

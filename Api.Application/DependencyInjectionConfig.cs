@@ -12,6 +12,7 @@ namespace Api.Application
             services.AddTransient<IFin_MovimentacaoService, Fin_MovimentacaoService>();
             services.AddTransient<IFin_categoriaService, Fin_categoriaService>();
             services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IFin_RelatoriosService, Fin_RelatoriosService>();
         }
     }
 }
