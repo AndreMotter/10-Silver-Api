@@ -60,10 +60,6 @@ namespace Api.Application.Services
         }
         public void salvar(Fin_categoria obj)
         {
-            if (String.IsNullOrEmpty(obj.cat_descricao))
-            {
-                throw new Exception("Informe a descrição");
-            }
 
             if (obj.cat_codigo == 0)
             {
