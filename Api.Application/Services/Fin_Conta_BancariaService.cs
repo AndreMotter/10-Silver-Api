@@ -17,7 +17,7 @@ namespace Api.Application.Services
             {
                 throw new Exception("Informe o id");
             }
-            var obj = _repository.Query(x => x.pes_codigo == id).FirstOrDefault();
+            var obj = _repository.Query(x => x.cba_codigo == id).FirstOrDefault();
             return obj;
         }
 
@@ -29,6 +29,10 @@ namespace Api.Application.Services
             {
                 cba_codigo = p.cba_codigo,
                 cba_descricao = p.cba_descricao,
+                cba_numero = p.cba_numero,
+                cba_agencia = p.cba_agencia,
+                cba_compe_banco =  p.cba_compe_banco,
+                cba_saldo = p.cba_saldo
             }).OrderByDescending(x => x.cba_codigo).ToList();
             return lista;
         }
@@ -51,8 +55,9 @@ namespace Api.Application.Services
         }
         public void salvar(Fin_Conta_Bancaria obj)
         {
-            if (obj.pes_codigo == 0)
+            if (obj.cba_codigo == 0)
             {
+                obj.cba_status = true;
                 _repository.Save(obj);
             }
             else

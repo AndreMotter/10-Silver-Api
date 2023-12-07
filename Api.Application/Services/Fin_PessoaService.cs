@@ -56,11 +56,6 @@ namespace Api.Application.Services
         }
         public void salvar(Fin_Pessoa obj)
         {
-            if (String.IsNullOrEmpty(obj.pes_nome))
-            {
-                throw new Exception("Informe o nome");
-            }
-
             if (obj.pes_codigo == 0)
             {
                 obj.pes_ativo = true;
