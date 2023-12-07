@@ -17,11 +17,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("Lista")]
-        public IActionResult Lista(string pessoa, string cpf, int status, int first, int rows)
+        public IActionResult Lista(string pessoa, string cpf)
         {
             try
             {
-                var obj = _service.lista(pessoa, cpf, status, first, rows);
+                var obj = _service.lista(pessoa, cpf);
                 return Ok(RetornoApi.Sucesso(obj));
             }
             catch (Exception ex)

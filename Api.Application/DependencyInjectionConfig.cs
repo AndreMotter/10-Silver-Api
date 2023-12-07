@@ -13,6 +13,7 @@ namespace Api.Application
             services.AddTransient<IFin_categoriaService, Fin_categoriaService>();
             services.AddTransient<ILoginService, LoginService>();
             services.AddTransient<IFin_RelatoriosService, Fin_RelatoriosService>();
+            services.AddTransient<IFin_Conta_BancariaService, Fin_Conta_BancariaService>();
         }
     }
 }

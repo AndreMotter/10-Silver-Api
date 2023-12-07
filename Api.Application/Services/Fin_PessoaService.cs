@@ -23,7 +23,7 @@ namespace Api.Application.Services
             return obj;
         }
 
-        public List<Fin_Pessoa> lista(string pessoa, string cpf, int status, int first, int rows)
+        public List<Fin_Pessoa> lista(string pessoa, string cpf)
         {
             var query = _repository.Query(x => 1 == 1);
            
@@ -37,19 +37,7 @@ namespace Api.Application.Services
                 query = query.Where(x => EF.Functions.Like(x.pes_cpf.Trim(), $"%{Regex.Replace(cpf.Trim(), @"[\.-/]", "")}%"));
             }
 
-            if (status != 0)
-            {
-                if (status == 1)
-                {
-                    query = query.Where(x => x.pes_ativo == true);
-                }
-                else
-                {
-                    query = query.Where(x => x.pes_ativo == false);
-    }
-}
-
-            var lista = query.Skip(first).Take(rows).Select(p => new Fin_Pessoa
+            var lista = query.Select(p => new Fin_Pessoa
             {
                 pes_codigo = p.pes_codigo,
                 pes_nome = p.pes_nome,

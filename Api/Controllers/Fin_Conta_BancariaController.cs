@@ -7,21 +7,21 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class Fin_categoriaController : Controller
+    public class Fin_Conta_BancariaController : Controller
     {
-        private IFin_categoriaService _service;
+        private IFin_Conta_BancariaService _service;
 
-        public Fin_categoriaController(IFin_categoriaService service)
+        public Fin_Conta_BancariaController(IFin_Conta_BancariaService service)
         {
             _service = service;
         }
 
         [HttpGet("Lista")]
-        public IActionResult Lista(int pes_codigo, string cat_sigla)
+        public IActionResult Lista(int pes_codigo)
         {
             try
             {
-                var obj = _service.lista(pes_codigo, cat_sigla);
+                var obj = _service.lista(pes_codigo);
                 return Ok(RetornoApi.Sucesso(obj));
             }
             catch (Exception ex)
@@ -29,20 +29,6 @@ namespace Api.Controllers
                 return BadRequest(RetornoApi.Erro(ex.Message));
             }
         }
-
-        [HttpGet("ListaSelect")]
-        public IActionResult ListaSelect(int pes_codigo)
-        {
-            try
-            {
-                var obj = _service.listaSelect(pes_codigo);
-                return Ok(RetornoApi.Sucesso(obj));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(RetornoApi.Erro(ex.Message));
-            }
-        }     
 
         [HttpGet("BuscaPorId")]
         public IActionResult BuscaPorId(int id)
@@ -59,7 +45,7 @@ namespace Api.Controllers
         }
 
         [HttpPost("Salvar")]
-        public IActionResult Salvar([FromBody] Fin_categoria obj)
+        public IActionResult Salvar([FromBody] Fin_Conta_Bancaria obj)
         {
             try
             {

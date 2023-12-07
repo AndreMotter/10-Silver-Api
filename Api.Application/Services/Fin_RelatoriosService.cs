@@ -31,7 +31,7 @@ namespace Api.Application.Services
                       cat_codigo = x.Fin_Categoria.cat_codigo,
                       cat_descricao = x.Fin_Categoria.cat_descricao,
                   },
-                  Fin_contaBancaria = new Fin_conta_Bancaria
+                  Fin_contaBancaria = new Fin_Conta_Bancaria
                   {
                       cba_numero = x.Fin_contaBancaria.cba_numero,
                       cba_descricao = x.Fin_contaBancaria.cba_descricao
